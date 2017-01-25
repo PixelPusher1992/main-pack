@@ -1,0 +1,55 @@
+/* Path ----------------------------------------- */
+$path: "..";
+$icon-font-path: "#{$path}/#{$path}/fonts/";
+$img-path: "../img/";
+//$fa-font-path: "#{$path}/#{$path}/fonts";
+
+/* Colors ----------------------------------------- */
+$black: #000000;
+$white: #ffffff;
+$color-main: #006b82;
+$color-light: $white;
+$color-light-darker: $white * 0.75;
+$color-dark: #464646;
+$color-alert: rgb(245, 74, 79);
+$color-alert-darker: $color-alert * 0.75;
+$color-main-darker: $color-main * 0.75;
+$color-soft: #f2f2f2;
+
+/* Backgrounds ----------------------------------------- */
+$back-grey: url('../img/back-grey.jpg');
+$back-review: url('../img/review.jpg');
+$back-achieve: url('../img/achieve.jpg');
+$back-process: url('../img/process.jpg');
+
+/* Breakpoints ----------------------------------------- */
+$screen-lg: 1200px;
+$screen-md: 992px;
+$screen-sm: 768px;
+$screen-xs: 320px;
+
+/* Grids ----------------------------------------- */
+//$grid-gutter-width: 30px;
+
+/* Typography ----------------------------------------- */
+$font-family-sans-serif: "MyriadPro", Arial, sans-serif;
+$second-font-family: "PTSans", Arial, sans-serif;
+//$font-family-serif: Georgia, "Times New Roman", Times, serif;
+
+//$font-size-base: 14px;
+//$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+//$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+//$font-size-h1: floor(($font-size-base * 2.6)); // ~36px
+//$font-size-h2: floor(($font-size-base * 2.15)); // ~30px
+//$font-size-h3: ceil(($font-size-base * 1.7)); // ~24px
+//$font-size-h4: ceil(($font-size-base * 1.25)); // ~18px
+//$font-size-h5: $font-size-base;
+//$font-size-h6: ceil(($font-size-base * 0.85)); // ~12px
+
+/* Others ----------------------------------------- */
+$time-animation: 0.3s;
+$container-large-desktop: 1000px;
+$btn-border-radius-base: 0px;
+
+

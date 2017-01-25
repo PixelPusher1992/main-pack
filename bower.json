@@ -1,0 +1,32 @@
+{
+  "name": "pixel.pushers-pack",
+  "homepage": "https://github.com/e-pages/Epages-Markup-Boilerplate-for-Bitrix",
+  "authors": [
+    "PixelPusher <yuriew.viktor@gmail.com>"
+  ],
+  "description": "Pack for front-end",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "useful components": {
+    "owl.carousel": "^2.1.1",
+    "jquery-form-styler": "jquery.form-styler#^1.7.4",
+    "jquery-ui": "^1.11.4",
+    "jqueryui-touch-punch": "*"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "jquery": "^3.1.1",
+    "fancyBox": "^2.1.5",
+    "font-awesome": "^4.6.1",
+    "animate.css": "^3.5.2"
+  },
+  "dependencies": {}
+}
