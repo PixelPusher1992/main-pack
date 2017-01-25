@@ -1,7 +1,8 @@
 <?php
 
-define('SITE_TEMPLATE_PATH', substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], '/markup')));
-define('SITE_DIR', SITE_TEMPLATE_PATH.'/markup/pages/');
+
+define('SITE_TEMPLATE_PATH', substr($_SERVER['PHP_SELF'], 0, strrpos($_SERVER['PHP_SELF'], 'markup')));
+define('SITE_DIR', SITE_TEMPLATE_PATH.'markup/pages/');
 
 
 /**

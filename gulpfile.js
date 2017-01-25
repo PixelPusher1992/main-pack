@@ -206,7 +206,7 @@ gulp.task('watch:css', () => {
 
 /* watch js */
 gulp.task('watch:js', () => {
-    gulp.watch([jsSrc], ['js']);
+    gulp.watch([`${source.js}**`], ['js']);
 });
 
 /* watch img compress and sprite */
@@ -220,11 +220,11 @@ gulp.task('watch', ['watch:css', 'watch:js', 'watch:img']);
 /* server reload + watching js and css */
 gulp.task('reload', ['css', 'js'], () => {
     browserSync.init({
-        proxy: "http://js30/lesson_1/"
+        proxy: "http://js-lessons.local"
     });
     gulp.watch(cssSrc, ['css']);
-    gulp.watch(jsSrc, ['js']);
-    gulp.watch('*.php').on('change', browserSync.reload);
+    gulp.watch(`${source.js}**`, ['js']);
+    gulp.watch('markup/**/*.php').on('change', browserSync.reload);
 });
 
 
