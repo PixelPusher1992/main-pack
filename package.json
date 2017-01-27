@@ -4,8 +4,7 @@
   "description": "front-end pack",
   "main": "",
   "scripts": {
-    "postinstall": "bower install",
-    "start": "gulp init default"
+    "postinstall": "bower install && gulp init"
   },
   "keywords": [
     "front-end",

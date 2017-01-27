@@ -123,13 +123,15 @@ gulp.task('css:uncss', () => {
 
 /* use js libraries */
 gulp.task('js:libs', () => {
-    gulp.src(jsSrc)
-        .pipe(sourcemaps.init())
-        .pipe(concat({path: 'lib.min.js', cwd: ''}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dist.js))
-        .pipe(browserSync.stream());
+    setTimeout( () => {
+        gulp.src(jsSrc)
+            .pipe(sourcemaps.init())
+            .pipe(concat({path: 'lib.min.js', cwd: ''}))
+            .pipe(uglify())
+            .pipe(sourcemaps.write('.'))
+            .pipe(gulp.dest(dist.js))
+            .pipe(browserSync.stream());
+    }, 3000);
 });
 
 /* main task */

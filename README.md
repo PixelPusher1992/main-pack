@@ -1,4 +1,4 @@
-#Epages Markup Boilerplate
+#PixelPusher's front-end pack
 
 ##Getting started
 
@@ -11,45 +11,120 @@ node -v
 ```bash
 npm i gulp -g
 ```
-* Install node packages (execute in project directory):
-```bash
-npm i
-```
 * Install Bower globally on your system by using the following command:
 ```bash
 npm i bower -g
 ```
-* Install bower components (execute in project directory):
+* Install needed packages (execute in project directory):
 ```bash
-bower i
+npm i
 ```
-* Start working on project (execute in project directory):
-```bash
-gulp init
-```
-```bash
-gulp
-```
-or type in command line (the following command executes `gulp init default` by npm)
-```bash
-npm start
-```
+This command has 3 steps:
+1. starting `npm i` command. It will install all node packages 
+2. starting ` bower i ` command. It will install all bower packages
+3. starting ` gulp init ` command. It will install jquery, bootstrap and some empty folders to your project.
 
-Last task will watch for changes in main and components scss files
+This three steps will run automatically after ` npm i ` command.
 
-#### Additional tasks:
-
-- make sprite _(put sprite images into `img/sprite` directory)_:
-```bash
-gulp sprite
-```
-- make sprite, css:
-```bash
-gulp make:all
-```
-- watch for changes in styles and sprite
+## Task list
+#### Main watchers:
+- watching for css, js, images changes and starting needed task:
 ```bash
 gulp watch
+```
+- watching for css, js changes and starting needed task + reloading browser window:
+```bash
+gulp reload
+```
+If you want use `gulp reload` watcher you'll need to add you projects url (or local url) in `proxy` property of `gulp reload` task:
+```bash
+gulp.task('reload', ['css', 'js'], () => {
+    browserSync.init({
+        proxy: "http://example.local"
+    });
+    gulp.watch(cssSrc, ['css']);
+    gulp.watch(`${source.js}**`, ['js']);
+    gulp.watch('markup/**/*.php').on('change', browserSync.reload);
+});
+```
+#### Additional watchers:
+- watching for css changes only and starting `gulp css` command:
+```bash
+gulp watch:css
+```
+- watching for js changes only and starting `gulp js` command:
+```bash
+gulp watch:js
+```
+- watching for images changes only and starting `gulp img:min img:sprite` commands:
+```bash
+gulp watch:img
+```
+#### Libraries tasks:
+- use bootstrap (this task starts automatically after `npm i` command):
+```bash
+gulp use:bootstrap
+```
+- use jquery (this task starts automatically after `npm i` command):
+```bash
+gulp use:jquery
+```
+- use animate.css:
+```bash
+gulp use:animate
+```
+- use font-awesome:
+```bash
+gulp use:font-awesome
+```
+- use fancybox:
+```bash
+gulp use:fancybox
+```
+- use all libraries:
+```bash
+gulp use
+```
+
+If library you want use has js files, you'll need to run additional command `gulp js:libs`. I'll fix this later.
+#### CSS tasks:
+- main css task (used in watcher):
+```bash
+gulp css
+```
+- use this task at the projects's end. It will delete all unused styles:
+```bash
+gulp css:uncss
+```
+#### JS tasks:
+- main js task (used in watcher):
+```bash
+gulp js
+```
+- adding library js files to `lib.min.js`:
+```bash
+gulp js:libs
+```
+#### Image tasks:
+- compressing images (need's payment, don't use):
+```bash
+gulp img:tiny
+```
+- compressing images (free, used in watcher):
+```bash
+gulp img:min
+```
+- make sprite with all images (used in watcher):
+```bash
+gulp img:sprite
+```
+- make sprite with all png files:
+```bash
+gulp img:sprite-png
+```
+- make sprite with all jpg files:
+```bash
+gulp img:sprite-jpg
 ```
 
 ## General principles
