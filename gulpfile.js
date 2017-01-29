@@ -131,7 +131,7 @@ gulp.task('js:libs', () => {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest(dist.js))
             .pipe(browserSync.stream());
-    }, 3000);
+    }, 5000);
 });
 
 /* main task */
@@ -222,7 +222,7 @@ gulp.task('watch', ['watch:css', 'watch:js', 'watch:img']);
 /* server reload + watching js and css */
 gulp.task('reload', ['css', 'js'], () => {
     browserSync.init({
-        proxy: "http://js-lessons.local"
+        proxy: "http://main-pack/"
     });
     gulp.watch(cssSrc, ['css']);
     gulp.watch(`${source.js}**`, ['js']);
@@ -259,7 +259,7 @@ gulp.task('bootstrap:convert', () => {
         .pipe(gulp.dest(`${source.css}bootstrap`));
 });
 //main task
-gulp.task('use:bootstrap', ['bootstrap:prepare', 'bootstrap:convert']);
+gulp.task('use:bootstrap', ['bootstrap:prepare', 'bootstrap:convert', 'js:libs']);
 
 /* use animate.css */
 gulp.task('use:animate', () => {
@@ -280,13 +280,14 @@ gulp.task('use:font-awesome', () => {
 });
 
 /* use jquery */
-gulp.task('use:jquery', () => {
+gulp.task('copy:jquery', () => {
     gulp.src('bower_components/jquery/dist/jquery.min.js')
         .pipe(gulp.dest(source.js));
 });
+gulp.task('use:jquery', ['copy:jquery', 'js:libs']);
 
 /* use fancybox */
-gulp.task('use:fancybox', () => {
+gulp.task('copy:fancybox', () => {
     gulp.src('bower_components/fancyBox/source/jquery.fancybox.pack.js')
         .pipe(gulp.dest(source.js));
     gulp.src(path.css.fancyBox)
@@ -302,6 +303,7 @@ gulp.task('use:fancybox', () => {
     gulp.src(path.images.fancyBox)
         .pipe(gulp.dest(`${dist.img}fancyBox`))
 });
+gulp.task('use:fancybox', ['copy:fancybox', 'js:libs']);
 
 /* use all */
 gulp.task('use', ['use:bootstrap', 'use:animate', 'use:font-awesome', 'use:jquery', 'use:fancybox']);

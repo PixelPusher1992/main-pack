@@ -85,8 +85,7 @@ gulp use:fancybox
 ```bash
 gulp use
 ```
-
-If library you want use has js files, you'll need to run additional command `gulp js:libs`. I'll fix this later.
+If you use animate.css or font-awesome, you'll need to uncomment animate.min and font-awesome.min files in "imports.scss' after `gulp use` command. 
 #### CSS tasks:
 - main css task (used in watcher):
 ```bash
@@ -101,7 +100,7 @@ gulp css:uncss
 ```bash
 gulp js
 ```
-- adding library js files to `lib.min.js`:
+- adding library js files to `lib.min.js` (used in all `gulp use` tasks):
 ```bash
 gulp js:libs
 ```
