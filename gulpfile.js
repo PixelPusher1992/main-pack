@@ -249,14 +249,16 @@ gulp.task('bootstrap:prepare', () => {
 });
 //minify bootstrap and url change
 gulp.task('bootstrap:convert', () => {
-    gulp.src(`${path.css.bootstrap}bootstrap.scss`)
-        .pipe(sass())
-        .pipe(concat({path: 'bootstrap.min.css', cwd:''}))
-        .pipe(urlAdjuster({
-            replace:  ['../../fonts','../fonts/bootstrap']
-        }))
-        .pipe(csso())
-        .pipe(gulp.dest(`${source.css}bootstrap`));
+    setTimeout( () => {
+        gulp.src(`${path.css.bootstrap}bootstrap.scss`)
+            .pipe(sass())
+            .pipe(concat({path: 'bootstrap.min.css', cwd: ''}))
+            .pipe(urlAdjuster({
+                replace: ['../../fonts', '../fonts/bootstrap']
+            }))
+            .pipe(csso())
+            .pipe(gulp.dest(`${source.css}bootstrap`));
+    }, 3000);
 });
 //main task
 gulp.task('use:bootstrap', ['bootstrap:prepare', 'bootstrap:convert', 'js:libs']);
